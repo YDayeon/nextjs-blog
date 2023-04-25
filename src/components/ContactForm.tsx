@@ -1,6 +1,5 @@
 'use client';
 
-import { sendContactForm } from '@/app/service/contact';
 import { useState } from 'react';
 
 const EMAIL = 'email';
@@ -31,12 +30,13 @@ export default function ContactEmailForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log('formState', formState);
     const res = await fetch(`api/contact`, {
       method: 'POST',
+      body: JSON.stringify({ ...formState }),
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formState),
     });
     console.log(res);
   };
