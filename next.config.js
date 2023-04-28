@@ -3,6 +3,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-}
+  images: {
+    domains: ["picsum.photos", "api.api-ninjas.com"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

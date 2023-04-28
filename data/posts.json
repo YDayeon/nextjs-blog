@@ -5,7 +5,7 @@
     "subTitle": "2022년 성장 스토리!",
     "createDate": "2022-12-31",
     "tag": "story",
-    "backgroundImage": "https://picsum.photos/200"
+    "backgroundImage": "https://picsum.photos/seed/picsum/500/300"
   },
   {
     "id": "02",
@@ -13,7 +13,7 @@
     "subTitle": "Let's deep in to GraphQL",
     "createDate": "2023-01-15",
     "tag": "tech",
-    "backgroundImage": "https://picsum.photos/200"
+    "backgroundImage": "https://picsum.photos/seed/picsum/500/300"
   },
   {
     "id": "03",
@@ -21,7 +21,7 @@
     "subTitle": "상태관리 알아보기",
     "createDate": "2023-02-20",
     "tag": "frontend",
-    "backgroundImage": "https://picsum.photos/200"
+    "backgroundImage": "https://picsum.photos/seed/picsum/500/300"
   },
   {
     "id": "04",
@@ -29,7 +29,7 @@
     "subTitle": "풀스택이 되어보자",
     "createDate": "2022-03-24",
     "tag": "fullstack",
-    "backgroundImage": "https://picsum.photos/200"
+    "backgroundImage": "https://picsum.photos/500/300?random=1"
   },
   {
     "id": "05",
@@ -37,7 +37,7 @@
     "subTitle": "study Docker with Mac",
     "createDate": "2023-01-30",
     "tag": "tech",
-    "backgroundImage": "https://picsum.photos/200"
+    "backgroundImage": "https://picsum.photos/seed/picsum/500/300"
   },
   {
     "id": "06",
@@ -45,6 +45,6 @@
     "subTitle": "how to use Suspense?",
     "createDate": "2023-04-01",
     "tag": "frontend",
-    "backgroundImage": "https://picsum.photos/200"
+    "backgroundImage": "https://picsum.photos/500/300?random=2"
   }
 ]
