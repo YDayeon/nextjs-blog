@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,20 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body>
-        <header className='flex justify-between px-2'>
-          <Link href='/'>Logo</Link>
-          <nav className='flex gap-1.5'>
-            <Link href='/'>Home</Link>
-            <Link href='/about'>About</Link>
-            <Link href='/posts'>Posts</Link>
-            <Link href='/contact'>Contact</Link>
-          </nav>
-        </header>
-        {children}
-        <footer className='absolute bottom-0 w-full text-center'>
-          Have a lovely day
-        </footer>
+      <body className='flex flex-col w-full max-w-screen-2xl mx-auto'>
+        <Header />
+        <main className='grow bg-slate-200'>{children}</main>
+        <Footer />
       </body>
     </html>
   );
