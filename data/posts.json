@@ -1,50 +1,56 @@
 [
   {
-    "id": "01",
     "title": "2022 회고록",
-    "subTitle": "2022년 성장 스토리!",
+    "description": "2022년 성장 스토리!",
     "createDate": "2022-12-31",
-    "tag": "story",
-    "backgroundImage": "https://picsum.photos/seed/picsum/500/300"
+    "category": "story",
+    "backgroundImage": "https://picsum.photos/500/300?random=1",
+    "featured": true,
+    "path": "story-2022"
   },
   {
-    "id": "02",
     "title": "GraphQL을 알아보자",
-    "subTitle": "Let's deep in to GraphQL",
+    "description": "Let's deep in to GraphQL",
     "createDate": "2023-01-15",
-    "tag": "tech",
-    "backgroundImage": "https://picsum.photos/seed/picsum/500/300"
+    "category": "tech",
+    "backgroundImage": "https://picsum.photos/500/300?random=2",
+    "featured": true,
+    "path": "graphql-basic"
   },
   {
-    "id": "03",
     "title": "zustand",
-    "subTitle": "상태관리 알아보기",
+    "description": "상태관리 알아보기",
     "createDate": "2023-02-20",
-    "tag": "frontend",
-    "backgroundImage": "https://picsum.photos/seed/picsum/500/300"
+    "category": "frontend",
+    "backgroundImage": "https://picsum.photos/500/300?random=3",
+    "featured": false,
+    "path": "zustand-study"
   },
   {
-    "id": "04",
     "title": "Next.js",
-    "subTitle": "풀스택이 되어보자",
+    "description": "풀스택이 되어보자",
     "createDate": "2022-03-24",
-    "tag": "fullstack",
-    "backgroundImage": "https://picsum.photos/500/300?random=1"
+    "category": "fullstack",
+    "backgroundImage": "https://picsum.photos/500/300?random=4",
+    "featured": true,
+    "path": "tobe-fullstack"
   },
   {
-    "id": "05",
     "title": "Docker",
-    "subTitle": "study Docker with Mac",
+    "description": "study Docker with Mac",
     "createDate": "2023-01-30",
-    "tag": "tech",
-    "backgroundImage": "https://picsum.photos/seed/picsum/500/300"
+    "category": "tech",
+    "backgroundImage": "https://picsum.photos/500/300?random=5",
+    "featured": true,
+    "path": "docker-study"
   },
   {
-    "id": "06",
     "title": "React18 Suspense",
-    "subTitle": "how to use Suspense?",
+    "description": "how to use Suspense?",
     "createDate": "2023-04-01",
-    "tag": "frontend",
-    "backgroundImage": "https://picsum.photos/500/300?random=2"
+    "category": "frontend",
+    "backgroundImage": "https://picsum.photos/500/300?random=6",
+    "featured": false,
+    "path": "new-react18"
   }
 ]

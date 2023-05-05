@@ -1,21 +1,30 @@
 import path from 'path';
-import { promises as fs } from 'fs';
+import { readFile } from 'fs/promises';
 
 export type TPost = {
-  id: string;
   title: string;
-  subTitle: string;
+  description: string;
   createDate: string;
-  tag: string;
+  category: string;
   backgroundImage: string;
+  path: string;
+  featured: boolean;
 };
-export async function getPosts(): Promise<TPost[]> {
-  const filePath = path.join(process.cwd(), 'data', 'posts.json');
-  const data = await fs.readFile(filePath, 'utf-8');
-  return JSON.parse(data);
+
+export async function getFeaturedPosts(): Promise<TPost[]> {
+  return getAllPosts().then((posts) => posts.filter((post) => post.featured));
 }
 
-export async function getPost(id: string): Promise<TPost | undefined> {
-  const posts = await getPosts();
-  return posts.find((item) => item.id === id);
+export async function getAllPosts(): Promise<TPost[]> {
+  const filePath = path.join(process.cwd(), 'data', 'posts.json');
+  return readFile(filePath, 'utf-8')
+    .then<TPost[]>(JSON.parse)
+    .then((posts) =>
+      posts.sort((a, b) => (a.createDate > b.createDate ? -1 : 1))
+    );
 }
+
+// export async function getPost(id: string): Promise<TPost | undefined> {
+//   const posts = await getPosts();
+//   return posts.find((item) => item.id === id);
+// }
