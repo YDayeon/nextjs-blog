@@ -1,9 +1,9 @@
-import MyInfoCard from '@/components/MyInfoCard';
+import Hero from '@/components/Hero';
 
 export default function AboutPage() {
   return (
     <>
-      <MyInfoCard />
+      <Hero />
       <section>
         <ul>
           <li>
