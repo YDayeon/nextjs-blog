@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import Hero from '@/components/Hero';
 import FeaturedPosts from '@/components/FeaturedPosts';
+import CarouselPosts from '@/components/CarouselPosts';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -10,9 +11,7 @@ export default function Home() {
       <Hero />
       {/* @ts-expect-error Async Server Component */}
       <FeaturedPosts />
-      <article>
-        <h2>You may Like</h2>
-      </article>
+      <CarouselPosts />
     </section>
   );
 }

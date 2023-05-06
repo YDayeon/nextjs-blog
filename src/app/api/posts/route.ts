@@ -1,8 +1,8 @@
-import { getFeaturedPosts } from '@/app/service/posts';
+import { getAllPosts } from '@/app/service/posts';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const posts = await getFeaturedPosts();
+  const posts = await getAllPosts();
 
   return NextResponse.json({ posts });
 }
