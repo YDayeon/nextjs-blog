@@ -10,8 +10,8 @@ export default function PostCard({
   post: { title, description, path, backgroundImage, createDate, category },
 }: TPostCardProps) {
   return (
-    <Link href={`/posts/${path}`}>
-      <article className='rounded-md overflow-hidden shadow-md bg-white'>
+    <Link href={`/post/${path}`}>
+      <article className='rounded-md overflow-hidden shadow-md bg-white border-2 shadow-md hover:border-emerald-300 hover:shadow-emerald-200 '>
         <Image
           src={backgroundImage}
           className='w-full'
