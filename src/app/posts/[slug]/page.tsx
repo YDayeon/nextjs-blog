@@ -1,5 +1,11 @@
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
+type TParams = {
+  params: {
+    slug: string;
+  };
+};
+
 export default function PostPage({ params: { slug } }: TParams) {
   const markdown: string = `A paragraph with *emphasis* and **strong importance**.
 
@@ -19,3 +25,4 @@ A table:
       <ReactMarkdown>{markdown}</ReactMarkdown>
     </>
   );
+}
