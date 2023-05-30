@@ -25,15 +25,15 @@ export async function getAllPosts(): Promise<TPost[]> {
     );
 }
 
-export async function getPostData(fileName: string): Promise<TPostData> {
+export function getPostData(fileName: string): Promise<TPostData> {
   const filePath = path.join(process.cwd(), 'data', 'posts', `${fileName}.md`);
   return readFile(filePath, 'utf-8');
 }
 
-// export async function getPost(id: string): Promise<TPost | undefined> {
-//   const posts = await getPosts();
-//   return posts.find((item) => item.id === id);
-// }
+export async function getPost(id: string): Promise<TPost | undefined> {
+  const posts = await getAllPosts();
+  return posts.find((item) => item.path === id);
+}
 
 // export async function getStaticProps() {
 //   readFile;
