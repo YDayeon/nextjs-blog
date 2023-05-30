@@ -1,11 +1,10 @@
-import { getPostData } from '@/app/service/posts';
+import { getPost } from '@/app/service/posts';
 import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const searchName = searchParams.get('search') || '';
+  const path = searchParams.get('path') || '';
+  const post = await getPost(path);
 
-  const posts = await getPostData(searchName);
-
-  return NextResponse.json({ posts });
+  return NextResponse.json({ post });
 }
