@@ -3,7 +3,7 @@
     "title": "2022 회고록",
     "description": "2022년 성장 스토리!",
     "createDate": "2022-12-31",
-    "category": "story",
+    "category": "My Story",
     "backgroundImage": "https://picsum.photos/500/300?random=1",
     "featured": true,
     "path": "story-2022"
@@ -12,7 +12,7 @@
     "title": "GraphQL을 알아보자",
     "description": "Let's deep in to GraphQL",
     "createDate": "2023-01-15",
-    "category": "tech",
+    "category": "Technology",
     "backgroundImage": "https://picsum.photos/500/300?random=2",
     "featured": true,
     "path": "graphql-basic"
@@ -21,7 +21,7 @@
     "title": "zustand",
     "description": "상태관리 알아보기",
     "createDate": "2023-02-20",
-    "category": "frontend",
+    "category": "Front-end",
     "backgroundImage": "https://picsum.photos/500/300?random=3",
     "featured": false,
     "path": "zustand-study"
@@ -30,7 +30,7 @@
     "title": "Next.js",
     "description": "풀스택이 되어보자",
     "createDate": "2022-03-24",
-    "category": "fullstack",
+    "category": "Full Stack",
     "backgroundImage": "https://picsum.photos/500/300?random=4",
     "featured": true,
     "path": "tobe-fullstack"
@@ -39,7 +39,7 @@
     "title": "Docker",
     "description": "study Docker with Mac",
     "createDate": "2023-01-30",
-    "category": "tech",
+    "category": "Technology",
     "backgroundImage": "https://picsum.photos/500/300?random=5",
     "featured": true,
     "path": "docker-study"
@@ -48,7 +48,7 @@
     "title": "React18 Suspense",
     "description": "how to use Suspense?",
     "createDate": "2023-04-01",
-    "category": "frontend",
+    "category": "Front-end",
     "backgroundImage": "https://picsum.photos/500/300?random=6",
     "featured": false,
     "path": "new-react18"

@@ -10,21 +10,10 @@ export type TPost = {
   path: string;
   featured: boolean;
 };
+export type TPostData = {};
 
 export async function getFeaturedPosts(): Promise<TPost[]> {
   return getAllPosts().then((posts) => posts.filter((post) => post.featured));
-}
-
-export async function getPostsByCategory(params: string | null) {
-  return getAllPosts().then((posts) =>
-    posts.filter((post) => {
-      if (params === 'all' || params === null) {
-        return true;
-      } else {
-        return post.category === params;
-      }
-    })
-  );
 }
 
 export async function getAllPosts(): Promise<TPost[]> {
@@ -36,10 +25,15 @@ export async function getAllPosts(): Promise<TPost[]> {
     );
 }
 
-// export async function getPost(id: string): Promise<TPost | undefined> {
-//   const posts = await getPosts();
-//   return posts.find((item) => item.id === id);
-// }
+export function getPostData(fileName: string): Promise<TPostData> {
+  const filePath = path.join(process.cwd(), 'data', 'posts', `${fileName}.md`);
+  return readFile(filePath, 'utf-8');
+}
+
+export async function getPost(id: string): Promise<TPost | undefined> {
+  const posts = await getAllPosts();
+  return posts.find((item) => item.path === id);
+}
 
 // export async function getStaticProps() {
 //   readFile;
