@@ -11,6 +11,17 @@ export type TPost = {
   featured: boolean;
 };
 export type TPostData = {};
+type TContent = {
+  title: string;
+  description: string;
+  path: string;
+  backgroundImage: string;
+};
+export type TPostResult = {
+  prevContent: TContent | null;
+  nextContent: TContent | null;
+  post: TPost;
+};
 
 export async function getFeaturedPosts(): Promise<TPost[]> {
   return getAllPosts().then((posts) => posts.filter((post) => post.featured));
@@ -30,9 +41,44 @@ export function getPostData(fileName: string): Promise<TPostData> {
   return readFile(filePath, 'utf-8');
 }
 
-export async function getPost(id: string): Promise<TPost | undefined> {
+export async function getPost(id: string): Promise<TPostResult | undefined> {
+  let filteredIndex = 0;
   const posts = await getAllPosts();
-  return posts.find((item) => item.path === id);
+  const filteredPost = posts.find((item, i) => {
+    filteredIndex = i;
+    return item.path === id;
+  });
+  const prevContent =
+    filteredIndex === 0
+      ? posts[posts.length - 1 - 1]
+      : posts[filteredIndex - 1];
+  const nextContent =
+    filteredIndex === posts.length - 1
+      ? posts[posts.length - 1]
+      : posts[filteredIndex + 1];
+  if (!!filteredPost) {
+    return {
+      prevContent: !!prevContent
+        ? {
+            title: prevContent.title,
+            description: prevContent.description,
+            path: prevContent.path,
+            backgroundImage: prevContent.backgroundImage,
+          }
+        : null,
+      nextContent: !!nextContent
+        ? {
+            title: nextContent.title,
+            description: nextContent.description,
+            path: nextContent.path,
+            backgroundImage: nextContent.backgroundImage,
+          }
+        : null,
+      post: filteredPost,
+    };
+  } else {
+    return undefined;
+  }
 }
 
 // export async function getStaticProps() {

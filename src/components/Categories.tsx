@@ -19,7 +19,7 @@ export default function Categories({
           <li
             key={category}
             onClick={() => onClick(category)}
-            className='text-lg cursor-pointer inline-block px-2 after:block after:transition-all after:duration-300 after:scale-0 after:border-b-4 after:border-orange-400 after:content=[""] after:origin-[0%_50%] after:ease-in-out hover:after:scale-100'
+            className='text-lg cursor-pointer inline-block after:block after:transition-all after:duration-300 after:scale-0 after:border-b-4 after:border-orange-400 after:content=[""] after:origin-[0%_50%] after:ease-in-out hover:after:scale-100'
           >
             {category}
           </li>
