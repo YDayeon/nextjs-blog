@@ -20,7 +20,7 @@ export default function FilterablePosts({ posts, categories }: TProps) {
       : posts.filter((post) => post.category === selectedCategory);
 
   return (
-    <section className='basis-5/6'>
+    <section className='flex w-full'>
       <PostsGrids posts={filteredPosts} />
       <Categories
         categories={[ALL_POSTS, ...categories]}

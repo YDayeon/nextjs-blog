@@ -9,7 +9,7 @@ type TPostsProps = {
 
 export default function PostsGrids({ posts }: TPostsProps) {
   return (
-    <ul className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-clos-4 gap-4'>
+    <ul className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-clos-4 gap-4 basis-5/6'>
       {posts.map((post) => (
         <li key={post.path}>
           <PostCard post={post} />
