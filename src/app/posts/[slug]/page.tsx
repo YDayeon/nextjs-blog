@@ -51,7 +51,7 @@ export default function PostPage({ params }: TParams) {
             style={{
               backgroundImage: `url(${post.prevContent?.backgroundImage})`,
             }}
-            className='basis-1/2 w-full flex justify-between px-9 py-10 items-center'
+            className='bg-cover basis-1/2 w-full flex justify-between px-9 py-10 items-center'
           >
             <FiArrowLeftCircle
               color='white'
@@ -68,7 +68,7 @@ export default function PostPage({ params }: TParams) {
             style={{
               backgroundImage: `url(${post.nextContent?.backgroundImage})`,
             }}
-            className='basis-1/2 w-full bg-sky-300 flex justify-between px-9 py-10 items-center'
+            className='bg-cover basis-1/2 w-full bg-sky-300 flex justify-between px-9 py-10 items-center'
           >
             <div>
               <h3 className='text-xl font-bold'>{post?.nextContent?.title}</h3>
