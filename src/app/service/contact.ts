@@ -10,16 +10,15 @@ const transporter = nodemailer.createTransport({
 });
 
 export const sendMail = async (params: TContactForm) => {
-  const { email, subject, message } = params;
-  console.log('email', email, 'subject', subject, 'message', message);
-  await transporter.sendMail({
-    from: params.email,
+  const { from, subject, message } = params;
+  console.log('from', from, 'subject', subject, 'message', message);
+  const mailOptions = {
     to: process.env.SMTP_USER,
-    subject: params.subject,
-    html: `<p>You have a contact form submission</p><br>
-        <p><strong>Email: </strong> ${params.email}</p><br>
+    subject: subject,
+    html: `<h1>[next-blog에서 온 e-mail]</h1>
+    <p><strong>Email: </strong> ${params.from}</p><br>
         <p><strong>Subject: </strong> ${subject}</p><br>
-        <p><strong>Message: </strong> ${message}</p><br>
-      `,
-  });
+        <p><strong>Message: </strong> ${message}</p><br>`,
+  };
+  await transporter.sendMail(mailOptions);
 };

@@ -4,20 +4,15 @@ import { BsLinkedin } from 'react-icons/bs';
 
 export default function ContactPage() {
   return (
-    <main className='w-full flex justify-center'>
-      <article
-        className='w-96 flex flex-col justify-center items-center text-black py-3'
-        style={{ background: '#FFF9DE' }}
-      >
-        <h2>CONTACT ME</h2>
-        <p>yday1223@gmail.com</p>
-        <div className='flex gap-1'>
-          <BsLinkedin />
-          <AiFillGithub />
-        </div>
-        <p>Or Send me an email</p>
-        <ContactEmailForm />
-      </article>
-    </main>
+    <section className='flex flex-col items-center justify-center py-10'>
+      <h2 className='text-2xl font-bold'>CONTACT ME</h2>
+      <p className='text-lg'>yday1223@gmail.com</p>
+      <div className='flex gap-1 py-1'>
+        <BsLinkedin size={30} />
+        <AiFillGithub size={30} />
+      </div>
+      <p className='mb-3'>Or Send me an email</p>
+      <ContactEmailForm />
+    </section>
   );
 }

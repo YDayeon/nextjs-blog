@@ -2,18 +2,18 @@
 
 import { useState } from 'react';
 
-const EMAIL = 'email';
+const FROM = 'from';
 const SUBJECT = 'subject';
 const MESSAGE = 'message';
 
 export type TContactForm = {
-  email: string;
+  from: string;
   subject: string;
   message: string;
 };
 
 const initState = {
-  [EMAIL]: '',
+  [FROM]: '',
   [SUBJECT]: '',
   [MESSAGE]: '',
 };
@@ -42,23 +42,26 @@ export default function ContactEmailForm() {
   };
 
   return (
-    <form className='w-full flex flex-col gap-2 px-5' onSubmit={handleSubmit}>
+    <form
+      className='w-11/12 lg:w-2/6 p-5 flex flex-col gap-2 bg-blue-300'
+      onSubmit={handleSubmit}
+    >
       <div className='w-full'>
-        <label htmlFor={EMAIL} className='block'>
+        <label htmlFor={FROM} className='block mb-0.5 font-bold text-sm'>
           Your Email
         </label>
         <input
           type='email'
-          id={EMAIL}
-          name={EMAIL}
-          value={formState[EMAIL]}
+          id={FROM}
+          name={FROM}
+          value={formState[FROM]}
           onChange={handleChange}
-          className='w-full'
+          className='w-full px-2 py-0.5 rounded-md'
           required
         />
       </div>
       <div className='w-full'>
-        <label htmlFor={SUBJECT} className='block'>
+        <label htmlFor={SUBJECT} className='block mb-0.5 font-bold text-sm'>
           Subject
         </label>
         <input
@@ -67,12 +70,12 @@ export default function ContactEmailForm() {
           name={SUBJECT}
           value={formState[SUBJECT]}
           onChange={handleChange}
-          className='w-full'
+          className='w-full px-2 py-0.5 rounded-md'
           required
         />
       </div>
       <div className='w-full'>
-        <label htmlFor={MESSAGE} className='block'>
+        <label htmlFor={MESSAGE} className='block mb-0.5 font-bold text-sm'>
           Message
         </label>
         <input
@@ -81,12 +84,12 @@ export default function ContactEmailForm() {
           name={MESSAGE}
           value={formState[MESSAGE]}
           onChange={handleChange}
-          className='w-full'
+          className='w-full px-2 py-0.5 rounded-md'
           required
         />
       </div>
       <button
-        className='w-full py-1 rounded-md'
+        className='w-full py-1 rounded-md mt-2 font-bold'
         style={{ backgroundColor: '#FFD3B0' }}
       >
         submit
