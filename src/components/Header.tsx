@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import Logo from '../../public/images/DY.png';
+import Image from 'next/image';
 
 export default function Header() {
   return (
-    <header className='flex justify-between px-2 py-2'>
+    <header className='flex justify-between items-center px-2 pt-2'>
       <Link href='/' className='text-lg'>
-        Logo
+        <Image src={Logo} alt='logo' width={50} />
       </Link>
       <nav className='flex gap-1.5'>
         <Link href='/'>Home</Link>

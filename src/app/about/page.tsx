@@ -1,10 +1,13 @@
+'use client';
+
 import Hero from '@/components/Hero';
+import ScrollableTimer from './ScrollableTimer';
 
 export default function AboutPage() {
   return (
     <section className='py-10'>
       <Hero />
-      <article className='flex flex-col items-center gap-6 mt-6 px-3'>
+      {/* <article className='flex flex-col items-center gap-6 mt-6 px-3'>
         <div className='bg-orange-200 lg:w-2/5 sm:w-full px-2 py-5 text-center shadow-xl rounded-lg'>
           <h3 className='font-bold text-xl'>Who am I?</h3>
           <p>
@@ -27,7 +30,8 @@ export default function AboutPage() {
           <p>Namseoul University - Industrial Management Engineering</p>
           <p>KSE - Smart Factory</p>
         </div>
-      </article>
+      </article> */}
+      <ScrollableTimer />
     </section>
   );
 }

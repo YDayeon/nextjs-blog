@@ -1,3 +1,5 @@
+'use client';
+
 import ContactEmailForm from '@/components/ContactForm';
 import { AiFillGithub } from 'react-icons/ai';
 import { BsLinkedin } from 'react-icons/bs';
