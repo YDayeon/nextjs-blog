@@ -18,6 +18,10 @@ module.exports = {
         'top-left-0-1': '0% 100%',
         'top-left-0-1/2': '0% 50%',
       },
+      colors: {
+        primary: '#5965F4',
+        disabled: '#C7C7C7',
+      },
     },
   },
   plugins: [
