@@ -13,7 +13,10 @@ const SList = styled.li<ListProps>`
     rotateX(calc(${(props) => props.i}*(360 / 24) deg)) translateZ(100px);
   font-size: large;
 `;
+
+const days = ['월', '화', '수', '목', '금', '토', '일'];
 const time = new Array(24).fill(0).map((el, i) => el + i);
+const minute = new Array(60).fill(0).map((el, i) => el + i);
 
 export default function ScrollableTimer() {
   const ref = useRef();
@@ -21,7 +24,7 @@ export default function ScrollableTimer() {
 
   // Use `useCallback` so we don't recreate the function on each render
   const setRefs = useCallback(
-    (node) => {
+    (node: any) => {
       // Ref's from useRef needs to have the node assigned to `current`
       ref.current = node;
       // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
@@ -37,7 +40,18 @@ export default function ScrollableTimer() {
   console.log(inView);
 
   return (
-    <div className='w-full h-36 overflow-hidden bg-gray-600 my-10 flex justify-center relative'>
+    <div className='w-full h-36 overflow-hidden bg-gray-600 my-10 flex justify-around relative'>
+      <ul className='overflow-scroll scrollbar-hide z-10 py-16'>
+        {days.map((el, i) => (
+          <li
+            key={el}
+            className='text-center text-base h-6'
+            ref={(element) => setRefs(element)}
+          >
+            {el}
+          </li>
+        ))}
+      </ul>
       <ul className='overflow-scroll scrollbar-hide z-10 py-16'>
         {time.map((el, i) => (
           <li
@@ -49,8 +63,23 @@ export default function ScrollableTimer() {
           </li>
         ))}
       </ul>
+      <ul className='overflow-scroll scrollbar-hide z-10 py-16'>
+        {minute.map((el, i) => (
+          <li
+            key={el}
+            className='text-center text-base h-6'
+            ref={(element) => setRefs(element)}
+          >
+            {el}
+          </li>
+        ))}
+      </ul>
       <div className='w-full h-full absolute top-0 flex items-center z-0 px-3'>
-        <div className='h-6 w-full bg-white/40 rounded-md'></div>
+        <div className='h-6 w-full bg-white/40 rounded-md flex'>
+          <span className='basis-1/3 text-end pr-5'>요일</span>
+          <span className='basis-1/3 text-end pr-6'>시</span>
+          <span className='basis-1/3 text-end pr-5'>분</span>
+        </div>
       </div>
     </div>
   );
