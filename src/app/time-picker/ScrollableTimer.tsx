@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import styled from 'styled-components';
 
@@ -19,34 +19,46 @@ const time = new Array(24).fill(0).map((el, i) => el + i);
 const minute = new Array(60).fill(0).map((el, i) => el + i);
 
 export default function ScrollableTimer() {
-  const ref = useRef();
-  const { ref: inViewRef, inView } = useInView();
-
-  // Use `useCallback` so we don't recreate the function on each render
-  const setRefs = useCallback(
-    (node: any) => {
-      // Ref's from useRef needs to have the node assigned to `current`
-      ref.current = node;
-      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
-      inViewRef(node);
-    },
-    [inViewRef]
-  );
+  const elements = useRef<null[] | HTMLLIElement[]>([]);
+  const root = useRef<HTMLDivElement>(null);
+  const observer = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    console.log(ref.current);
-    console.log('inView', inView);
-  }, [ref, inView]);
-  console.log(inView);
+    if (!!root.current) {
+      observer.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              console.log(entry.target, 'isIntersecting!!');
+            }
+          });
+        },
+        {
+          root: root.current,
+          rootMargin: '100px 0px 100px 0px',
+          threshold: 0.6,
+        }
+      );
+
+      elements.current?.forEach((el) => {
+        if (el) {
+          observer.current?.observe(el);
+        }
+      });
+    }
+  }, [elements, root]);
 
   return (
-    <div className='w-full h-36 overflow-hidden bg-gray-600 my-10 flex justify-around relative'>
+    <div
+      className='w-full h-36 overflow-hidden bg-gray-600 my-10 flex justify-around relative'
+      ref={root}
+    >
       <ul className='overflow-scroll scrollbar-hide z-10 py-16'>
         {days.map((el, i) => (
           <li
+            ref={(el) => (elements.current[i] = el)}
             key={el}
             className='text-center text-base h-6'
-            ref={(element) => setRefs(element)}
           >
             {el}
           </li>
@@ -54,22 +66,14 @@ export default function ScrollableTimer() {
       </ul>
       <ul className='overflow-scroll scrollbar-hide z-10 py-16'>
         {time.map((el, i) => (
-          <li
-            key={el}
-            className='text-center text-base h-6'
-            ref={(element) => setRefs(element)}
-          >
+          <li key={el} className='text-center text-base h-6'>
             {el}
           </li>
         ))}
       </ul>
       <ul className='overflow-scroll scrollbar-hide z-10 py-16'>
         {minute.map((el, i) => (
-          <li
-            key={el}
-            className='text-center text-base h-6'
-            ref={(element) => setRefs(element)}
-          >
+          <li key={el} className='text-center text-base h-6'>
             {el}
           </li>
         ))}
