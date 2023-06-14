@@ -25,17 +25,23 @@ export default function ScrollableTimer() {
 
   useEffect(() => {
     if (!!root.current) {
+      console.log(root.current.offsetHeight - 24);
       observer.current = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
+              entry.target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center',
+              });
               console.log(entry.target, 'isIntersecting!!');
             }
           });
         },
         {
           root: root.current,
-          rootMargin: '100px 0px 100px 0px',
+          rootMargin: '-60px 0px -60px 0px',
           threshold: 0.6,
         }
       );
